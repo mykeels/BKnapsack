@@ -876,6 +876,8 @@
     <None Include="data\mknapcb9\mknapcb9-9.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="data\README.md" />
+    <None Include="Knapsack.md" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>

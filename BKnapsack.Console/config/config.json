@@ -1,7 +1,7 @@
 ﻿{
   "consoleWriteInterval": 100,
   "enforceHardObjective": true,
-  "noOfIterations": 20000,
+  "noOfIterations": 50000,
   "populationSize": 5,
   "writeToConsole":  true
 }
