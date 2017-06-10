@@ -18,6 +18,7 @@ namespace BKnapsack.Console
         public string configFile { get; set; }
         public string problemName { get; set; }
         public double levyJumpIndex { get; set; }
+        public double beta { get; set; }
         public enum Algorithms
         {
             ABC,
@@ -35,7 +36,8 @@ namespace BKnapsack.Console
             configFile,
             algorithm,
             runs,
-            levy
+            levy,
+            beta
         }
 
         private Flags flag;
@@ -63,6 +65,7 @@ namespace BKnapsack.Console
                     else if (arg == "-a" || arg == "-algo" || arg == "-algorithm") this.flag = Flags.algorithm;
                     else if (arg == "-r" || arg == "-runs") this.flag = Flags.runs;
                     else if (arg == "-l" || arg == "-levy") this.flag = Flags.levy;
+                    else if (arg == "-b" || arg == "-beta") this.flag = Flags.beta;
                     else throw new Exception(Program.Console.WriteLine($"Unknown Flag [{arg}] found", ConsoleColor.Yellow));
                 }
                 else if (this.flag == Flags.setupFile)
@@ -81,6 +84,12 @@ namespace BKnapsack.Console
                 {
                     //expects just one snippet/item
                     this.levyJumpIndex = Convert.ToDouble(arg);
+                    this.flag = Flags.none;
+                }
+                else if (this.flag == Flags.beta)
+                {
+                    //expects just one snippet/item
+                    this.beta = Convert.ToDouble(arg);
                     this.flag = Flags.none;
                 }
                 else if (this.flag == Flags.runs)

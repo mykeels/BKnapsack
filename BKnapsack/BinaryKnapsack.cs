@@ -11,6 +11,7 @@ namespace BKnapsack
     public class BinaryKnapsack : Knapsack
     {
         public double levyJumpIndex = 0.5;
+        public double beta = 0;
         public double[] clone(double[] sol)
         {
             double[] newSol = new double[sol.Length];
@@ -60,7 +61,7 @@ namespace BKnapsack
             double alpha = Number.Rnd(-(levyJumpIndex * 2)) + levyJumpIndex;
             for (int i = 0; i < sol.Length; i++)
             {
-                newSol[i] = Distribution.generateLevy(alpha) + sol[i];
+                newSol[i] = Distribution.generateLevy(alpha, beta) + sol[i];
             }
             return newSol;
         }

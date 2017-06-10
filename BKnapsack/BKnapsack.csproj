@@ -30,11 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MSearch">
-      <HintPath>..\..\MSearch\MSearch\bin\Debug\MSearch.dll</HintPath>
+    <Reference Include="MSearch, Version=1.0.6323.26133, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSearch.1.0.6323.26133\lib\net452\MSearch.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\..\..\VConnect\VCPublicCoreAPI\VCCoreAPI-BD-8080\VCPrivateCoreAPI.Client\bin\Debug\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,6 +51,9 @@
     <Compile Include="BinaryKnapsack.cs" />
     <Compile Include="Knapsack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
