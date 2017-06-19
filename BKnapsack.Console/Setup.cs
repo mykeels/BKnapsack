@@ -17,8 +17,13 @@ namespace BKnapsack.Console
         public string dataFile { get; set; }
         public string configFile { get; set; }
         public string problemName { get; set; }
-        public double levyJumpIndex { get; set; }
+        public double alpha { get; set; }
         public double beta { get; set; }
+        public int populationSize { get; set; }
+        /// <summary>
+        /// aka pValue
+        /// </summary>
+        public double switchProbability { get; set; }
         public enum Algorithms
         {
             ABC,
@@ -36,8 +41,10 @@ namespace BKnapsack.Console
             configFile,
             algorithm,
             runs,
-            levy,
-            beta
+            alpha,
+            beta,
+            pvalue,
+            popSize
         }
 
         private Flags flag;
@@ -62,10 +69,12 @@ namespace BKnapsack.Console
                     if (arg == "-s" || arg == "-setup") this.flag = Flags.setupFile;
                     else if (arg == "-c" || arg == "-cfg" || arg == "-config") this.flag = Flags.configFile;
                     else if (arg == "-d" || arg == "-data") this.flag = Flags.dataFile;
-                    else if (arg == "-a" || arg == "-algo" || arg == "-algorithm") this.flag = Flags.algorithm;
+                    else if (arg == "-algo" || arg == "-algorithm") this.flag = Flags.algorithm;
                     else if (arg == "-r" || arg == "-runs") this.flag = Flags.runs;
-                    else if (arg == "-l" || arg == "-levy") this.flag = Flags.levy;
+                    else if (arg == "-a" || arg == "-alpha") this.flag = Flags.alpha;
                     else if (arg == "-b" || arg == "-beta") this.flag = Flags.beta;
+                    else if (arg == "-p" || arg == "-pvalue") this.flag = Flags.pvalue;
+                    else if (arg == "-size" || arg == "-popSize") this.flag = Flags.popSize;
                     else throw new Exception(Program.Console.WriteLine($"Unknown Flag [{arg}] found", ConsoleColor.Yellow));
                 }
                 else if (this.flag == Flags.setupFile)
@@ -80,16 +89,28 @@ namespace BKnapsack.Console
                     this.configFile = arg;
                     this.flag = Flags.none;
                 }
-                else if (this.flag == Flags.levy)
+                else if (this.flag == Flags.alpha)
                 {
                     //expects just one snippet/item
-                    this.levyJumpIndex = Convert.ToDouble(arg);
+                    this.alpha = Convert.ToDouble(arg);
                     this.flag = Flags.none;
                 }
                 else if (this.flag == Flags.beta)
                 {
                     //expects just one snippet/item
                     this.beta = Convert.ToDouble(arg);
+                    this.flag = Flags.none;
+                }
+                else if (this.flag == Flags.pvalue)
+                {
+                    //expects just one snippet/item
+                    this.switchProbability = Convert.ToDouble(arg);
+                    this.flag = Flags.none;
+                }
+                else if (this.flag == Flags.popSize)
+                {
+                    //expects just one snippet/item
+                    this.populationSize = Convert.ToInt32(arg);
                     this.flag = Flags.none;
                 }
                 else if (this.flag == Flags.runs)

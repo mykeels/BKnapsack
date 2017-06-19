@@ -10,8 +10,9 @@ namespace BKnapsack
 {
     public class BinaryKnapsack : Knapsack
     {
-        public double levyJumpIndex = 0.5;
-        public double beta = 0;
+        public double beta = 1.5;
+        public double alpha = 0.075;
+        public int populationSize = 5;
         public double[] clone(double[] sol)
         {
             double[] newSol = new double[sol.Length];
@@ -58,7 +59,6 @@ namespace BKnapsack
         public double[] mutate(double[] sol)
         {
             double[] newSol = new double[sol.Length];
-            double alpha = Number.Rnd(-(levyJumpIndex * 2)) + levyJumpIndex;
             for (int i = 0; i < sol.Length; i++)
             {
                 newSol[i] = Distribution.generateLevy(alpha, beta) + sol[i];
@@ -75,7 +75,7 @@ namespace BKnapsack
             config.mutationFunction = this.mutate;
             config.noOfIterations = 50000;
             config.objectiveFunction = this.getFitness;
-            config.populationSize = 5;
+            config.populationSize = populationSize;
             config.selectionFunction = Selection.RoulleteWheel;
             config.writeToConsole = true;
             config.consoleWriteInterval = 100;

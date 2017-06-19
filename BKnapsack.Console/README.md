@@ -74,13 +74,17 @@ Note how in the code above, you can combine multiple flags. Enjoy!
 
 You may want to execute an Experiment a certain number of times. This is achieved using the `-r` flag, which is used as `-r 3` to execute the experiment 3 times. Change the number to any number you wish.
 
-##### Levy Index Flag
+##### Alpha Flag
 
-The Binary Flower Pollination Algorithm takes in a custom parameter which is called Levy Index, which takes a decimal value between 0 and 1 and is used generate alpha values which control Levy Flights. You can specify this using the `-l` flag, which is used as `-l 0.3` for a levy flight index value of `0.3`.
+The Binary Flower Pollination Algorithm takes in a custom parameter which is called alpha, which takes a decimal value between 0 and 1 and is used to control Levy Flights. You can specify this using the `-a` flag, which is used as `-a 0.3` for an alpha value of `0.3`.
 
 ##### Beta Flag
 
-The Binary Flower Pollination Algorithm also takes in a custom parameter which is called beta, which takes a decimal value between 0 and 1. You can specify this using the `-b` or `-beta` flag, which is used as `-b 0.1` for a beta value of `0.1`.
+The Binary Flower Pollination Algorithm also takes in a custom parameter which is called beta, which takes a decimal value which may be greater than 1. You can specify this using the `-b` or `-beta` flag, which is used as `-b 0.1` for a beta value of `0.1`.
+
+##### Population Size Flag
+
+The Binary Flower Pollination Algorithm also requires a population of flowers of a specified size. By default, the population size is 5, but it can be changed with the `-size` flag, which is used as `-size 15` for a population size of 15.
 
 ```
 Note: Experiment Results are stored in the `results` folder in JSON files, and are named in the following format: `{data-name}-{data-index}_r{run-index}-file{file-index}.json` e.g. `mknapcb1-1_r1-file3.json`

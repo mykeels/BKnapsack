@@ -35,7 +35,9 @@ namespace BKnapsack.Console
             if (setup.hasDataFile())
             {
                 knapsack.Load(setup.dataFile);
-                knapsack.levyJumpIndex = Math.Max(setup.levyJumpIndex, knapsack.levyJumpIndex);
+                if (setup.alpha > 0) knapsack.alpha = setup.alpha;
+                if (setup.beta > 0) knapsack.beta = setup.beta;
+                if (setup.populationSize > 0) knapsack.populationSize = setup.populationSize;
                 if (setup.hasConfigFile()) Program.Console.WriteLine("Reading from Configuration File", ConsoleColor.Blue);
                 else Program.Console.WriteLine("Configuration File Not Specified ... Using Default Configuration Instead", ConsoleColor.Blue);
                 for (int i = 1; i <= setup.runs; i++)
@@ -43,9 +45,12 @@ namespace BKnapsack.Console
                     var config = new Configuration<double[]>();
                     if (setup.algorithm == Setup.Algorithms.Flowers)
                     {
+                        Console.WriteLine($"\nAlpha:\t{knapsack.alpha}", ConsoleColor.DarkYellow);
+                        Console.WriteLine($"Beta:\t{knapsack.beta}", ConsoleColor.DarkYellow);
+                        Console.WriteLine($"Size:\t{knapsack.populationSize}\n", ConsoleColor.DarkYellow);
                         Pollination<double[]> garden = new Pollination<double[]>();
                         config = setup.hasConfigFile() ? knapsack.getConfiguration(setup.configFile) : knapsack.getConfiguration();
-                        garden.create(config);
+                        garden.create(config, setup.switchProbability);
                         var bestSol = garden.fullIteration();
                         saveExperiment(config, garden.getIterationSequence(), bestSol, garden.getBestFitness(), setup.problemName, setup.dataFile, knapsack.goal, i);
                         Program.Console.WriteLine($"= = = = = = = =\tCompleted Experiment Run #{i}\t= = = = = = = =", ConsoleColor.Cyan);
