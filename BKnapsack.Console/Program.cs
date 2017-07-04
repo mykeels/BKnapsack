@@ -65,9 +65,16 @@ namespace BKnapsack.Console
                         Console.WriteLine($"Size:\t{knapsack.populationSize}\n", ConsoleColor.DarkYellow);
                         if (setup.tableSize == 0)
                         {
-                            Console.WriteLine($"Warning: LAHC Table Size Not Set ... Defaulting to 1");
+                            Console.WriteLine($"Warning: LAHC Table Size Not Set ... Defaulting to 1", ConsoleColor.Yellow);
                             setup.tableSize = 1;
                         }
+                        if (setup.mapFactor == 0)
+                        {
+                            Console.WriteLine($"Warning: MapFactor Not Set ... Defaulting to 0.5", ConsoleColor.Yellow);
+                            setup.mapFactor = 0.5;
+                        }
+                        Console.WriteLine($"Table Size:\t{setup.tableSize}\n", ConsoleColor.DarkYellow);
+                        Console.WriteLine($"Map Factor:\t{setup.mapFactor}\n", ConsoleColor.DarkYellow);
                         BinaryPIO<double> pio = new BinaryPIO<double>();
                         pio._switchProbability = setup.switchProbability;
                         config = setup.hasConfigFile() ? knapsack.getConfiguration(setup.configFile) : knapsack.getConfiguration();
@@ -84,6 +91,10 @@ namespace BKnapsack.Console
                         var bestSol = pio.fullIteration();
                         saveExperiment(config, pio.getIterationSequence(), bestSol, pio.getBestFitness(), setup.problemName, setup.dataFile, setup.algorithm.ToString() + "_m" + setup.mapFactor, knapsack.goal, i);
                         Program.Console.WriteLine($"= = = = = = = =\tCompleted Experiment Run #{i}\t= = = = = = = =", ConsoleColor.Cyan);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"No supported algorithm ({setup.algorithm.ToString()}) was specified ... Program will now exit", ConsoleColor.Magenta);
                     }
                 }
             }
