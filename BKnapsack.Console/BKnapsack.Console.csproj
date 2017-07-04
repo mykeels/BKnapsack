@@ -36,9 +36,9 @@
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MSearch, Version=1.0.6372.17851, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MSearch\MSearch\bin\Debug\MSearch.dll</HintPath>
+    <Reference Include="MSearch, Version=1.0.6394.17947, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSearch.1.0.6394.17947\lib\net452\MSearch.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -880,6 +880,7 @@
     <None Include="data\README.md" />
     <None Include="Knapsack.md" />
     <None Include="packages.config" />
+    <None Include="pigeons\README.md" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>

@@ -31,10 +31,10 @@ namespace BKnapsack.Console
         {
             ABC,
             Flowers,
+            BinaryPigeon,
             GA,
             HillClimb,
-            SA,
-            BinaryPigeon
+            SA
         }
 
         public enum Flags
