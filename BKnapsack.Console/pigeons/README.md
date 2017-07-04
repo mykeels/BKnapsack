@@ -2,9 +2,11 @@
 
 If you're using BPIO for the knapsack problem, the following startup flags have been added:
 
+To Download, check [this section](../README.md#command-line-interface) for instructions.
+
 ### How to use
 
-The Command Line for this application makes use of flags, which are described in [this section](../README.md).
+The Command Line for this application makes use of flags, which are described in [this section](../README.md#how-to-use).
 
 New Flags available include:
 
