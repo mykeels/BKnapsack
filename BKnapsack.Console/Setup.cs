@@ -19,7 +19,10 @@ namespace BKnapsack.Console
         public string problemName { get; set; }
         public double alpha { get; set; }
         public double beta { get; set; }
+        public double mapFactor { get; set; } = 0.05;
         public int populationSize { get; set; }
+        public int tableSize { get; set; }
+        public int noOfIterations { get; set; }
         /// <summary>
         /// aka pValue
         /// </summary>
@@ -30,7 +33,8 @@ namespace BKnapsack.Console
             Flowers,
             GA,
             HillClimb,
-            SA
+            SA,
+            BinaryPigeon
         }
 
         public enum Flags
@@ -44,7 +48,10 @@ namespace BKnapsack.Console
             alpha,
             beta,
             pvalue,
-            popSize
+            popSize,
+            mapFactor,
+            tableSize,
+            iterations
         }
 
         private Flags flag;
@@ -75,6 +82,9 @@ namespace BKnapsack.Console
                     else if (arg == "-b" || arg == "-beta") this.flag = Flags.beta;
                     else if (arg == "-p" || arg == "-pvalue") this.flag = Flags.pvalue;
                     else if (arg == "-size" || arg == "-popSize") this.flag = Flags.popSize;
+                    else if (arg == "-m" || arg == "-map") this.flag = Flags.mapFactor;
+                    else if (arg == "-t" || arg == "-tableSize") this.flag = Flags.tableSize;
+                    else if (arg == "-i" || arg == "-iterations") this.flag = Flags.iterations;
                     else throw new Exception(Program.Console.WriteLine($"Unknown Flag [{arg}] found", ConsoleColor.Yellow));
                 }
                 else if (this.flag == Flags.setupFile)
@@ -111,6 +121,24 @@ namespace BKnapsack.Console
                 {
                     //expects just one snippet/item
                     this.populationSize = Convert.ToInt32(arg);
+                    this.flag = Flags.none;
+                }
+                else if (this.flag == Flags.tableSize)
+                {
+                    //expects just one snippet/item
+                    this.tableSize = Convert.ToInt32(arg);
+                    this.flag = Flags.none;
+                }
+                else if (this.flag == Flags.mapFactor)
+                {
+                    //expects just one snippet/item
+                    this.mapFactor = Convert.ToDouble(arg);
+                    this.flag = Flags.none;
+                }
+                else if (this.flag == Flags.iterations)
+                {
+                    //expects just one snippet/item
+                    this.noOfIterations = Convert.ToInt32(arg);
                     this.flag = Flags.none;
                 }
                 else if (this.flag == Flags.runs)
