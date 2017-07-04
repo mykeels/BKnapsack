@@ -4,7 +4,7 @@ If you're using BPIO for the knapsack problem, the following startup flags have 
 
 To Download, check [this section](../README.md#command-line-interface) for instructions.
 
-### How to use
+### New Flags Available
 
 The Command Line for this application makes use of flags, which are described in [this section](../README.md#how-to-use).
 
