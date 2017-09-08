@@ -12,14 +12,14 @@ namespace BKnapsack.Tests
     [TestClass]
     public class BinaryKnapsack_Tests
     {
-        [TestMethod]
-        public void Test_Get_Fitness()
-        {
-            BinaryKnapsack knapsack = new BinaryKnapsack();
-            knapsack.Load(FileHelper.GetFileHelper().GetDataFilePath("data/mknapcb1/mknapcb1-3.json"));
-            double fitness = knapsack.getFitness(new double[] { 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0 });
-            Console.WriteLine(fitness);
-            Assert.IsTrue(fitness <= knapsack.goal);
-        }
+        //[TestMethod]
+        //public void Test_Get_Fitness()
+        //{
+        //    BinaryKnapsack knapsack = new BinaryKnapsack();
+        //    knapsack.Load(FileHelper.GetFileHelper().GetDataFilePath("data/mknapcb1/mknapcb1-3.json"));
+        //    double fitness = knapsack.getFitness(new double[] { 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0 });
+        //    Console.WriteLine(fitness);
+        //    Assert.IsTrue(fitness <= knapsack.goal);
+        //}
     }
 }

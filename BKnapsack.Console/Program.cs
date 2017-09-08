@@ -101,7 +101,7 @@ namespace BKnapsack.Console
             else Program.Console.WriteLine("No Data File Specified ... Program will now exit", ConsoleColor.Yellow);
         }
 
-        private static void saveExperiment(Configuration<double[]> config, List<double> iterations, double[] bestSol, double bestFitness, string problemName, string filePath, string algorithm, int goal, int run)
+        private static void saveExperiment(Configuration<double[]> config, List<double> iterations, double[] bestSol, double bestFitness, string problemName, string filePath, string algorithm, double goal, int run)
         {
             Program.Console.WriteLine($"End of Experiment on [{filePath}] ... Now Compiling Results", ConsoleColor.Yellow);
             var result = new

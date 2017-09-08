@@ -13,7 +13,7 @@ namespace BKnapsack
         public List<Item> items = new List<Item>();
         public List<double> weights = new List<double>();
         public int noOfKnapsacks, noOfItems;
-        public int goal = 0;
+        public double goal = 0;
 
         public class Item
         {
