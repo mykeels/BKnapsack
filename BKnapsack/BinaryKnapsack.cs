@@ -46,9 +46,10 @@ namespace BKnapsack
             int i = 0;
             foreach (double item in sol)
             {
-                if (Convert.ToInt32(item) == 1) yield return i;
+                if (Convert.ToInt32(Math.Round(item)) == 1) ret.Add(i);
                 i++;
             }
+            return ret.AsEnumerable();
         }
 
         public double getFitness(double[] sol)

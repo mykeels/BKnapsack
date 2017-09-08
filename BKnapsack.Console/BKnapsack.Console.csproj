@@ -890,6 +890,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\originals\mknapcb9.txt" />
+    <Content Include="data\originals\mknapcb8.txt" />
+    <Content Include="data\originals\mknapcb7.txt" />
+    <Content Include="data\originals\mknapcb6.txt" />
+    <Content Include="data\originals\mknapcb5.txt" />
+    <Content Include="data\originals\mknapcb4.txt" />
+    <Content Include="data\originals\mknapcb3.txt" />
+    <Content Include="data\originals\mknapcb2.txt" />
+    <Content Include="data\originals\mknapcb1.txt" />
     <Content Include="setup\setup.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
